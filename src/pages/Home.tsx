@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import {
   motion,
@@ -5,7 +6,7 @@ import {
   useScroll,
   useTransform,
 } from 'motion/react'
-import { ArrowRight, CheckCircle } from '@phosphor-icons/react'
+import { ArrowRight, CaretLeft, CaretRight, CheckCircle } from '@phosphor-icons/react'
 import Reveal from '../components/Reveal'
 import CountUp from '../components/CountUp'
 import CtaBand from '../components/CtaBand'
@@ -40,6 +41,16 @@ export default function Home() {
   // Depth cue: back image drifts down, front image drifts up as the hero scrolls away
   const yBack = useTransform(scrollY, [0, 700], [0, 64])
   const yFront = useTransform(scrollY, [0, 700], [0, -44])
+
+  const railRef = useRef<HTMLDivElement>(null)
+  function scrollRail(direction: -1 | 1) {
+    const rail = railRef.current
+    if (!rail) return
+    rail.scrollBy({
+      left: direction * rail.clientWidth * 0.8,
+      behavior: reduce ? 'auto' : 'smooth',
+    })
+  }
 
   return (
     <>
@@ -204,51 +215,79 @@ export default function Home() {
             <h2 className="text-3xl font-semibold tracking-tight text-steel-900 md:text-4xl">
               Manufactured & supplied by HydraTech
             </h2>
-            <Link
-              to="/products"
-              className="group inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600 hover:text-accent-500"
-            >
-              All products
-              <ArrowRight
-                size={14}
-                weight="bold"
-                className="transition-transform duration-200 group-hover:translate-x-0.5"
-              />
-            </Link>
-          </Reveal>
-        </div>
-        <div className="mx-auto mt-10 flex max-w-7xl snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-4 sm:px-6">
-          {products.map((p, i) => (
-            <Reveal
-              key={p.slug}
-              delay={i * 0.06}
-              className="w-64 shrink-0 snap-start sm:w-72"
-            >
+            <div className="flex items-center gap-5">
               <Link
                 to="/products"
-                onPointerMove={trackSpot}
-                className="spot-parent group block overflow-hidden rounded-lg border border-steel-200 bg-white transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-1 hover:border-accent-300 hover:shadow-md hover:shadow-steel-900/10"
+                className="group inline-flex items-center gap-1.5 text-sm font-semibold text-accent-600 hover:text-accent-500"
               >
-                <span aria-hidden className="spot-overlay z-10" />
-                <div className="aspect-[4/3] overflow-hidden bg-white">
-                  <img
-                    src={p.image}
-                    alt={p.title}
-                    loading="lazy"
-                    className="h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="flex items-center justify-between gap-3 border-t border-steel-100 p-5">
-                  <h3 className="font-semibold text-steel-900">{p.title}</h3>
-                  <ArrowRight
-                    size={16}
-                    weight="bold"
-                    className="shrink-0 text-steel-300 transition-[transform,color] duration-200 group-hover:translate-x-0.5 group-hover:text-accent-600"
-                  />
-                </div>
+                All products
+                <ArrowRight
+                  size={14}
+                  weight="bold"
+                  className="transition-transform duration-200 group-hover:translate-x-0.5"
+                />
               </Link>
-            </Reveal>
-          ))}
+              <div className="hidden gap-2 md:flex">
+                <button
+                  type="button"
+                  aria-label="Scroll products left"
+                  onClick={() => scrollRail(-1)}
+                  className="rounded-full border border-steel-300 bg-white p-2.5 text-steel-600 transition-colors duration-200 hover:border-accent-400 hover:text-accent-600 active:translate-y-px"
+                >
+                  <CaretLeft size={16} weight="bold" />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Scroll products right"
+                  onClick={() => scrollRail(1)}
+                  className="rounded-full border border-steel-300 bg-white p-2.5 text-steel-600 transition-colors duration-200 hover:border-accent-400 hover:text-accent-600 active:translate-y-px"
+                >
+                  <CaretRight size={16} weight="bold" />
+                </button>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+        <div className="relative mx-auto mt-10 max-w-7xl">
+          <div
+            ref={railRef}
+            className="flex snap-x snap-mandatory items-stretch gap-5 overflow-x-auto px-4 pb-4 sm:px-6"
+          >
+            {products.map((p, i) => (
+              <Reveal
+                key={p.slug}
+                delay={i * 0.06}
+                className="flex w-64 shrink-0 snap-start sm:w-72"
+              >
+                <Link to="/products" className="group block w-full">
+                  <div className="flex h-full flex-col overflow-hidden rounded-lg border border-steel-200 bg-white transition-[box-shadow,transform,border-color] duration-300 group-hover:-translate-y-1 group-hover:border-accent-300 group-hover:shadow-lg group-hover:shadow-steel-900/10">
+                    <div className="flex h-44 shrink-0 items-center justify-center overflow-hidden border-b border-steel-100 p-5">
+                      <img
+                        src={p.image}
+                        alt={p.title}
+                        loading="lazy"
+                        className="max-h-full w-auto object-contain transition-transform duration-500 group-hover:scale-[1.05]"
+                      />
+                    </div>
+                    <div className="flex min-h-[5.25rem] flex-1 items-center justify-between gap-3 px-5 py-4">
+                      <h3 className="font-semibold leading-snug text-steel-900">
+                        {p.title}
+                      </h3>
+                      <ArrowRight
+                        size={16}
+                        weight="bold"
+                        className="shrink-0 text-steel-300 transition-[transform,color] duration-200 group-hover:translate-x-0.5 group-hover:text-accent-600"
+                      />
+                    </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 right-0 hidden w-20 bg-gradient-to-l from-steel-50 to-transparent lg:block"
+          />
         </div>
       </section>
 
@@ -344,11 +383,7 @@ export default function Home() {
             {rentalFleet.map((r, i) => (
               <Reveal key={r.slug} delay={i * 0.05}>
                 <Link to="/rental-fleet" className="group block">
-                  <div
-                    onPointerMove={trackSpot}
-                    className="spot-parent overflow-hidden rounded-lg border border-steel-200 bg-white transition-[box-shadow,transform,border-color] duration-300 group-hover:-translate-y-1 group-hover:border-accent-300 group-hover:shadow-md group-hover:shadow-steel-900/10"
-                  >
-                    <span aria-hidden className="spot-overlay z-10" />
+                  <div className="overflow-hidden rounded-lg border border-steel-200 bg-white transition-[box-shadow,transform,border-color] duration-300 group-hover:-translate-y-1 group-hover:border-accent-300 group-hover:shadow-md group-hover:shadow-steel-900/10">
                     <img
                       src={r.image}
                       alt={r.title}
