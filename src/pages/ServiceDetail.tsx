@@ -17,17 +17,29 @@ export default function ServiceDetail() {
 
   return (
     <>
-      <section className="border-b border-steel-200 bg-steel-50">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-16">
+      <section className="relative overflow-hidden bg-steel-950">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              'radial-gradient(44rem 22rem at 82% 0%, rgba(45, 127, 211, 0.14), transparent 65%)',
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
           <Reveal>
             <Link
               to="/services"
-              className="inline-flex items-center gap-2 text-sm font-medium text-steel-500 transition-colors hover:text-accent-600"
+              className="group inline-flex items-center gap-2 text-sm font-medium text-steel-400 transition-colors hover:text-accent-300"
             >
-              <ArrowLeft size={14} weight="bold" />
+              <ArrowLeft
+                size={14}
+                weight="bold"
+                className="transition-transform duration-200 group-hover:-translate-x-0.5"
+              />
               All services
             </Link>
-            <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-steel-900 md:text-5xl">
+            <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-5xl">
               {service.title}
             </h1>
           </Reveal>

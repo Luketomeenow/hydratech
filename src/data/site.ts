@@ -227,6 +227,8 @@ export interface Product {
   slug: string
   title: string
   description: string[]
+  /** Short factual spec callouts, sourced from the original site copy */
+  highlights?: string[]
   items?: string[]
   image: string
 }
@@ -238,6 +240,7 @@ export const products: Product[] = [
     description: [
       'We are a leading manufacturer of hydraulic power packs for various applications, built to requirement with high quality components. Pressure and flow ratings are selected per client requirement, and we offer both standard and customized power packs.',
     ],
+    highlights: ['Standard & customized builds', 'Client-specified pressure & flow'],
     image: '/images/product-hydraulic-power-packs.jpg',
   },
   {
@@ -246,6 +249,7 @@ export const products: Product[] = [
     description: [
       'We manufacture pneumatic-driven pump pressure testing units for our rental fleet, with both high-pressure low-flow and low-pressure high-flow pumps available, including dual-pump units combining high flow and high pressure. Units go up to 30,000 PSI, with inbuilt pressure chart recorders and gauges.',
     ],
+    highlights: ['Up to 30,000 PSI', 'Inbuilt chart recorders & gauges'],
     image: '/images/product-high-pressure-testing-equipment.jpg',
   },
   {
@@ -254,6 +258,7 @@ export const products: Product[] = [
     description: [
       'We manufacture piston shafts, cylinder bodies, pistons, gland nuts and seal kits, with assembly and pressure testing of complete cylinders. Both double-acting and single-acting hydraulic cylinders are supplied with the required capacity and stroke length per customer requirement.',
     ],
+    highlights: ['Single & double acting', 'Custom capacity & stroke'],
     image: '/images/product-hydraulic-cylinders.jpg',
   },
   {
@@ -262,6 +267,7 @@ export const products: Product[] = [
     description: [
       'We are one of the eminent manufacturers and suppliers of a wide range of oil, water and chemical flushing equipment. Manufactured from high quality material procured from certified vendors, this range is at par with global standards in design, quality and performance.',
     ],
+    highlights: ['Oil, water & chemical flushing'],
     items: [
       'Hot oil flushing equipment',
       'Oil flushing systems',
@@ -278,6 +284,7 @@ export const products: Product[] = [
       'Bottom hole sampling captures reservoir fluid samples at reservoir conditions. To obtain accurate compositional and PVT analyses, recovered samples must remain at bottom hole conditions; special chambers compensate for the pressure drop as samples return to the surface.',
       'Our sister company Habu Sampling, Norway manufactures both oil and gas bottom hole sampling cylinders, which we supply across the Gulf region. Gas cylinders hold 20 litres at 3,000 PSI; oil cylinders hold 1,000 cc at 10,000 PSI.',
     ],
+    highlights: ['Gas: 20 L at 3,000 PSI', 'Oil: 1,000 cc at 10,000 PSI'],
     image: '/images/product-bottom-hole-sampling-cylinders.jpg',
   },
   {
@@ -286,6 +293,7 @@ export const products: Product[] = [
     description: [
       'HYDRATECH ME FZCO is the largest stockholder in the region of hydraulic raw materials and components, chemically cleaned and oil flushed ready for service.',
     ],
+    highlights: ['Largest stockholder in the region'],
     items: [
       'Hard chrome plated bar',
       'Honed tubes',
