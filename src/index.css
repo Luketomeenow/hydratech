@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/outfit';
+
+@theme {
+  --font-sans: 'Outfit Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Steel neutrals: one cool family, locked for the whole site */
+  --color-steel-50: #f5f7fa;
+  --color-steel-100: #e9edf2;
+  --color-steel-200: #d5dbe4;
+  --color-steel-300: #aab4c4;
+  --color-steel-400: #7c889c;
+  --color-steel-500: #5a667a;
+  --color-steel-600: #434d60;
+  --color-steel-700: #313a4a;
+  --color-steel-800: #232a38;
+  --color-steel-900: #161c28;
+  --color-steel-950: #0e1219;
+
+  /* Single accent: hydraulic brand blue, locked site-wide */
+  --color-accent-100: #dcebfa;
+  --color-accent-300: #7db8f0;
+  --color-accent-400: #4f9be6;
+  --color-accent-500: #2d7fd3;
+  --color-accent-600: #1f65ad;
+  --color-accent-700: #1a5390;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  @apply bg-[#fbfcfe] text-steel-800 font-sans antialiased;
+}
+
+::selection {
+  background: var(--color-accent-500);
+  color: white;
+}
