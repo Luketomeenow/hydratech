@@ -8,6 +8,7 @@ import {
   Drop,
   Flask,
   SprayBottle,
+  Crane,
 } from '@phosphor-icons/react'
 
 export const serviceIcons: Record<string, Icon> = {
@@ -19,4 +20,5 @@ export const serviceIcons: Record<string, Icon> = {
   'oil-flushing': Drop,
   'chemical-cleaning': Flask,
   'high-pressure-water-jet-cleaning': SprayBottle,
+  'structural-steel-fabrication': Crane,
 }

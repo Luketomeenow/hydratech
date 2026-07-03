@@ -18,7 +18,7 @@ const stats = [
   { value: 2010, label: 'Established in Jebel Ali Free Zone', format: (n: number) => String(Math.round(n)) },
   { value: 3, label: 'ISO & OHSAS certifications' },
   { value: 35000, label: 'PSI pressure testing capability', format: (n: number) => Math.round(n).toLocaleString('en-US') },
-  { value: 8, label: 'Specialist service lines' },
+  { value: 9, label: 'Specialist service lines' },
 ]
 
 const heroStagger = {
@@ -175,8 +175,13 @@ export default function Home() {
         <div className="grid gap-px overflow-hidden rounded-lg border border-steel-200 bg-steel-200 sm:grid-cols-2">
           {services.map((s, i) => {
             const Icon = serviceIcons[s.slug]
+            const spansRow = i === services.length - 1 && services.length % 2 === 1
             return (
-              <Reveal key={s.slug} delay={(i % 2) * 0.05} className="h-full">
+              <Reveal
+                key={s.slug}
+                delay={(i % 2) * 0.05}
+                className={`h-full ${spansRow ? 'sm:col-span-2' : ''}`}
+              >
                 <Link
                   to={`/services/${s.slug}`}
                   onPointerMove={trackSpot}

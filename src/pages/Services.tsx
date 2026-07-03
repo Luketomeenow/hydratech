@@ -17,24 +17,47 @@ export default function Services() {
       <section className="mx-auto grid max-w-7xl gap-8 px-4 py-16 sm:px-6 md:grid-cols-2 md:py-20">
         {services.map((s, i) => {
           const Icon = serviceIcons[s.slug]
+          const wide = i === services.length - 1 && services.length % 2 === 1
           return (
-            <Reveal key={s.slug} delay={(i % 2) * 0.08} className="h-full">
+            <Reveal
+              key={s.slug}
+              delay={(i % 2) * 0.08}
+              className={`h-full ${wide ? 'md:col-span-2' : ''}`}
+            >
               <Link to={`/services/${s.slug}`} className="group block h-full">
-                <div className="flex h-full flex-col overflow-hidden rounded-lg border border-steel-200 bg-white transition-[box-shadow,transform,border-color] duration-300 group-hover:-translate-y-1 group-hover:border-accent-300 group-hover:shadow-lg group-hover:shadow-steel-900/10">
-                  <div className="relative h-48 shrink-0 overflow-hidden">
+                <div
+                  className={`flex h-full flex-col overflow-hidden rounded-lg border border-steel-200 bg-white transition-[box-shadow,transform,border-color] duration-300 group-hover:-translate-y-1 group-hover:border-accent-300 group-hover:shadow-lg group-hover:shadow-steel-900/10 ${
+                    wide ? 'md:flex-row' : ''
+                  }`}
+                >
+                  <div
+                    className={`relative h-48 shrink-0 overflow-hidden ${
+                      wide ? 'md:h-auto md:w-1/2' : ''
+                    }`}
+                  >
                     <img
                       src={s.image}
                       alt={s.title}
                       loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                      className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05] ${
+                        wide ? 'md:absolute md:inset-0' : ''
+                      }`}
                     />
                     <div
                       aria-hidden
                       className="absolute inset-0 bg-gradient-to-t from-steel-950/35 to-transparent transition-opacity duration-300 group-hover:opacity-60"
                     />
                   </div>
-                  <div className="flex flex-1 flex-col px-7 pb-7">
-                    <div className="relative -mt-6 mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent-600 text-white shadow-md shadow-steel-900/20 transition-[background-color,transform] duration-300 group-hover:scale-110 group-hover:bg-accent-500">
+                  <div
+                    className={`flex flex-1 flex-col px-7 pb-7 ${
+                      wide ? 'md:justify-center md:py-7' : ''
+                    }`}
+                  >
+                    <div
+                      className={`relative -mt-6 mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent-600 text-white shadow-md shadow-steel-900/20 transition-[background-color,transform] duration-300 group-hover:scale-110 group-hover:bg-accent-500 ${
+                        wide ? 'md:mt-0' : ''
+                      }`}
+                    >
                       <Icon size={24} />
                     </div>
                     <h2 className="text-lg font-semibold text-steel-900">

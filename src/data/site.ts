@@ -221,6 +221,28 @@ export const services: Service[] = [
     },
     image: '/images/service-high-pressure-water-jet-cleaning.jpg',
   },
+  {
+    slug: 'structural-steel-fabrication',
+    title: 'Structural Steel Fabrication',
+    short:
+      'Fabrication of skids, frames, platforms and supports in carbon and stainless steel, built to drawing.',
+    description: [
+      'HYDRATECH ME FZCO fabricates structural steel work in support of its hydraulic and oil field services: equipment skids, power pack base frames, test stands, platforms and pipe supports, built to client drawings and specifications.',
+      'Our workshop covers cutting, forming, welding and assembly in both carbon steel and stainless steel, with surface preparation and painting to suit onshore, offshore and marine environments. Fabricated structures are dimensionally checked and inspected before dispatch, and repair or modification of existing steelwork can be carried out at our facility or at site.',
+    ],
+    bullets: {
+      heading: 'Typical fabrication work',
+      items: [
+        'Equipment skids and base frames',
+        'Test stands and platforms',
+        'Ladders, walkways and handrails',
+        'Pipe racks and supports',
+        'Guards and enclosures',
+        'Repair and modification of existing structures',
+      ],
+    },
+    image: '/images/service-structural-steel-fabrication.jpg',
+  },
 ]
 
 export interface Product {
