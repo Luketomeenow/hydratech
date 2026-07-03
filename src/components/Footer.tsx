@@ -26,11 +26,11 @@ export default function Footer() {
             Company
           </h3>
           <ul className="mt-4 space-y-2.5 text-sm">
-            <li><Link className="transition-colors hover:text-accent-300" to="/about">About Us</Link></li>
-            <li><Link className="transition-colors hover:text-accent-300" to="/products">Products</Link></li>
-            <li><Link className="transition-colors hover:text-accent-300" to="/services">Services</Link></li>
-            <li><Link className="transition-colors hover:text-accent-300" to="/rental-fleet">Rental Fleet</Link></li>
-            <li><Link className="transition-colors hover:text-accent-300" to="/contact">Contact Us</Link></li>
+            <li><Link className="link-underline transition-colors hover:text-accent-300" to="/about">About Us</Link></li>
+            <li><Link className="link-underline transition-colors hover:text-accent-300" to="/products">Products</Link></li>
+            <li><Link className="link-underline transition-colors hover:text-accent-300" to="/services">Services</Link></li>
+            <li><Link className="link-underline transition-colors hover:text-accent-300" to="/rental-fleet">Rental Fleet</Link></li>
+            <li><Link className="link-underline transition-colors hover:text-accent-300" to="/contact">Contact Us</Link></li>
           </ul>
         </div>
 
@@ -42,7 +42,7 @@ export default function Footer() {
             {services.map((s) => (
               <li key={s.slug}>
                 <Link
-                  className="transition-colors hover:text-accent-300"
+                  className="link-underline transition-colors hover:text-accent-300"
                   to={`/services/${s.slug}`}
                 >
                   {s.title}
@@ -64,7 +64,7 @@ export default function Footer() {
             <li className="flex gap-2.5">
               <Phone size={18} className="mt-0.5 shrink-0 text-accent-400" />
               <a
-                className="transition-colors hover:text-accent-300"
+                className="link-underline transition-colors hover:text-accent-300"
                 href={`tel:${company.phone.replace(/\s/g, '')}`}
               >
                 {company.phone}
@@ -77,7 +77,7 @@ export default function Footer() {
             <li className="flex gap-2.5">
               <EnvelopeSimple size={18} className="mt-0.5 shrink-0 text-accent-400" />
               <a
-                className="transition-colors hover:text-accent-300"
+                className="link-underline transition-colors hover:text-accent-300"
                 href={`mailto:${company.email}`}
               >
                 {company.email}

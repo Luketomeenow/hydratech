@@ -5,6 +5,7 @@ import Reveal from '../components/Reveal'
 import CtaBand from '../components/CtaBand'
 import { services } from '../data/site'
 import { serviceIcons } from '../data/serviceIcons'
+import { trackSpot } from '../lib/spotlight'
 
 export default function Services() {
   return (
@@ -21,8 +22,10 @@ export default function Services() {
             <Reveal key={s.slug} delay={(i % 2) * 0.08} className="h-full">
               <Link
                 to={`/services/${s.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-lg border border-steel-200 bg-white transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-steel-900/10"
+                onPointerMove={trackSpot}
+                className="spot-parent group flex h-full flex-col overflow-hidden rounded-lg border border-steel-200 bg-white transition-[box-shadow,transform] duration-300 hover:-translate-y-1 hover:shadow-md hover:shadow-steel-900/10"
               >
+                <span aria-hidden className="spot-overlay z-10" />
                 <div className="h-44 overflow-hidden">
                   <img
                     src={s.image}

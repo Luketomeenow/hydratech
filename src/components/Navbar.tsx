@@ -68,7 +68,7 @@ export default function Navbar() {
           ))}
           <Link
             to="/contact"
-            className="rounded-md bg-accent-600 px-4 py-2 text-sm font-semibold text-white transition-[background-color,transform] duration-200 hover:bg-accent-500 active:translate-y-px"
+            className="btn-sheen rounded-md bg-accent-600 px-4 py-2 text-sm font-semibold text-white transition-[background-color,transform] duration-200 hover:bg-accent-500 active:translate-y-px"
           >
             Contact Us
           </Link>

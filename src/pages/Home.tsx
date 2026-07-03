@@ -11,6 +11,7 @@ import CountUp from '../components/CountUp'
 import CtaBand from '../components/CtaBand'
 import { services, products, rentalFleet, industries, company } from '../data/site'
 import { serviceIcons } from '../data/serviceIcons'
+import { trackSpot } from '../lib/spotlight'
 
 const stats = [
   { value: 2010, label: 'Established in Jebel Ali Free Zone', format: (n: number) => String(Math.round(n)) },
@@ -77,7 +78,7 @@ export default function Home() {
             <motion.div variants={heroItem} className="mt-9 flex flex-wrap gap-3">
               <Link
                 to="/services"
-                className="group inline-flex items-center gap-2 rounded-md bg-accent-500 px-6 py-3 text-sm font-semibold text-white transition-[background-color,transform] duration-200 hover:bg-accent-400 active:translate-y-px"
+                className="btn-sheen group inline-flex items-center gap-2 rounded-md bg-accent-500 px-6 py-3 text-sm font-semibold text-white transition-[background-color,transform] duration-200 hover:bg-accent-400 active:translate-y-px"
               >
                 Explore Our Services
                 <ArrowRight
@@ -167,8 +168,10 @@ export default function Home() {
               <Reveal key={s.slug} delay={(i % 2) * 0.05} className="h-full">
                 <Link
                   to={`/services/${s.slug}`}
-                  className="group flex h-full flex-col bg-white p-7 transition-colors duration-200 hover:bg-steel-50"
+                  onPointerMove={trackSpot}
+                  className="spot-parent group flex h-full flex-col bg-white p-7 transition-colors duration-200 hover:bg-steel-50"
                 >
+                  <span aria-hidden className="spot-overlay" />
                   <Icon
                     size={28}
                     className="text-accent-600 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-110"
@@ -223,8 +226,10 @@ export default function Home() {
             >
               <Link
                 to="/products"
-                className="group block overflow-hidden rounded-lg border border-steel-200 bg-white transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-1 hover:border-accent-300 hover:shadow-md hover:shadow-steel-900/10"
+                onPointerMove={trackSpot}
+                className="spot-parent group block overflow-hidden rounded-lg border border-steel-200 bg-white transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-1 hover:border-accent-300 hover:shadow-md hover:shadow-steel-900/10"
               >
+                <span aria-hidden className="spot-overlay z-10" />
                 <div className="aspect-[4/3] overflow-hidden bg-white">
                   <img
                     src={p.image}
@@ -339,7 +344,11 @@ export default function Home() {
             {rentalFleet.map((r, i) => (
               <Reveal key={r.slug} delay={i * 0.05}>
                 <Link to="/rental-fleet" className="group block">
-                  <div className="overflow-hidden rounded-lg border border-steel-200 bg-white transition-[box-shadow,transform,border-color] duration-300 group-hover:-translate-y-1 group-hover:border-accent-300 group-hover:shadow-md group-hover:shadow-steel-900/10">
+                  <div
+                    onPointerMove={trackSpot}
+                    className="spot-parent overflow-hidden rounded-lg border border-steel-200 bg-white transition-[box-shadow,transform,border-color] duration-300 group-hover:-translate-y-1 group-hover:border-accent-300 group-hover:shadow-md group-hover:shadow-steel-900/10"
+                  >
+                    <span aria-hidden className="spot-overlay z-10" />
                     <img
                       src={r.image}
                       alt={r.title}

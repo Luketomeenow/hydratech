@@ -22,7 +22,7 @@ export default function CtaBand() {
             </h2>
             <Link
               to="/contact"
-              className="inline-block whitespace-nowrap rounded-md bg-white px-6 py-3 text-sm font-semibold text-accent-700 transition-[background-color,transform] duration-200 hover:bg-accent-100 active:translate-y-px"
+              className="btn-sheen btn-sheen-dark inline-block whitespace-nowrap rounded-md bg-white px-6 py-3 text-sm font-semibold text-accent-700 transition-[background-color,transform] duration-200 hover:bg-accent-100 active:translate-y-px"
             >
               Contact Us
             </Link>
