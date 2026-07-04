@@ -4,26 +4,28 @@
 @theme {
   --font-sans: 'Outfit Variable', ui-sans-serif, system-ui, sans-serif;
 
-  /* Steel neutrals: one cool family, locked for the whole site */
-  --color-steel-50: #f5f7fa;
-  --color-steel-100: #e9edf2;
-  --color-steel-200: #d5dbe4;
-  --color-steel-300: #aab4c4;
-  --color-steel-400: #7c889c;
-  --color-steel-500: #5a667a;
-  --color-steel-600: #434d60;
-  --color-steel-700: #313a4a;
-  --color-steel-800: #232a38;
-  --color-steel-900: #161c28;
-  --color-steel-950: #0e1219;
+  /* Navy-leaning neutrals matching the HydraTech Saudi scheme:
+     light end stays quiet, dark end lands on the brand deep navy */
+  --color-steel-50: #f5f6fa;
+  --color-steel-100: #e9ebf4;
+  --color-steel-200: #d5d9e8;
+  --color-steel-300: #a9b0cb;
+  --color-steel-400: #7b83a6;
+  --color-steel-500: #5a6180;
+  --color-steel-600: #434b6e;
+  --color-steel-700: #333a5e;
+  --color-steel-800: #262d5c;
+  --color-steel-900: #191f4e;
+  --color-steel-950: #10143a;
 
-  /* Single accent: hydraulic brand blue, locked site-wide */
-  --color-accent-100: #dcebfa;
-  --color-accent-300: #7db8f0;
-  --color-accent-400: #4f9be6;
-  --color-accent-500: #2d7fd3;
-  --color-accent-600: #1f65ad;
-  --color-accent-700: #1a5390;
+  /* Single accent: HydraTech Saudi orange (#FF6F47), locked site-wide.
+     600/700 are darkened steps so small text on white keeps contrast. */
+  --color-accent-100: #ffe6db;
+  --color-accent-300: #ffab8c;
+  --color-accent-400: #ff8a5f;
+  --color-accent-500: #ff6f47;
+  --color-accent-600: #c94712;
+  --color-accent-700: #a03a0e;
 }
 
 html {
@@ -37,7 +39,7 @@ html {
 }
 
 body {
-  @apply bg-[#fbfcfe] text-steel-800 font-sans antialiased;
+  @apply bg-[#fcfcfe] text-steel-800 font-sans antialiased;
 }
 
 ::selection {
@@ -59,7 +61,7 @@ body {
   transition: opacity 0.3s ease;
   background: radial-gradient(
     240px circle at var(--spot-x, 50%) var(--spot-y, 50%),
-    rgb(45 127 211 / 0.09),
+    rgb(255 111 71 / 0.09),
     transparent 70%
   );
 }
@@ -98,7 +100,7 @@ body {
   background: linear-gradient(
     105deg,
     transparent 40%,
-    rgb(31 101 173 / 0.14) 50%,
+    rgb(201 71 18 / 0.14) 50%,
     transparent 60%
   );
 }

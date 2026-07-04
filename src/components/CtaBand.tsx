@@ -5,14 +5,14 @@ export default function CtaBand() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-20">
       <Reveal>
-        <div className="relative overflow-hidden rounded-xl bg-accent-600 px-8 py-12 md:px-14 md:py-16">
+        <div className="relative overflow-hidden rounded-xl bg-steel-900 px-8 py-12 md:px-14 md:py-16">
           {/* Single quiet tonal sweep so the panel reads as brand, not flat fill */}
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0"
             style={{
               background:
-                'radial-gradient(40rem 20rem at 85% 10%, rgba(255, 255, 255, 0.14), transparent 60%)',
+                'radial-gradient(40rem 20rem at 85% 10%, rgba(255, 111, 71, 0.14), transparent 60%)',
             }}
           />
           <div className="relative flex flex-col items-start gap-7 md:flex-row md:items-center md:justify-between">
@@ -22,7 +22,7 @@ export default function CtaBand() {
             </h2>
             <Link
               to="/contact"
-              className="btn-sheen btn-sheen-dark inline-block whitespace-nowrap rounded-md bg-white px-6 py-3 text-sm font-semibold text-accent-700 transition-[background-color,transform] duration-200 hover:bg-accent-100 active:translate-y-px"
+              className="btn-sheen inline-block whitespace-nowrap rounded-md bg-accent-500 px-6 py-3 text-sm font-semibold text-white transition-[background-color,transform] duration-200 hover:bg-accent-400 active:translate-y-px"
             >
               Contact Us
             </Link>

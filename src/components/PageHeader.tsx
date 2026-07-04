@@ -14,7 +14,7 @@ export default function PageHeader({ title, intro }: PageHeaderProps) {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            'radial-gradient(44rem 22rem at 82% 0%, rgba(45, 127, 211, 0.14), transparent 65%)',
+            'radial-gradient(44rem 22rem at 82% 0%, rgba(255, 111, 71, 0.10), transparent 65%)',
         }}
       />
       <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 md:py-24">

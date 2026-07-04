@@ -7,7 +7,8 @@ import {
   useReducedMotion,
   useScroll,
 } from 'motion/react'
-import { List, X } from '@phosphor-icons/react'
+import { List, Phone, X } from '@phosphor-icons/react'
+import { company } from '../data/site'
 
 const links = [
   { to: '/', label: 'Home', end: true },
@@ -36,6 +37,25 @@ export default function Navbar() {
           : 'border-transparent'
       }`}
     >
+      <div className="hidden bg-steel-900 md:block">
+        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-4 text-xs text-steel-300 sm:px-6">
+          <p>{company.tagline}</p>
+          <div className="flex items-center gap-6">
+            <ul className="flex gap-4 font-medium text-white">
+              {company.certifications.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
+            <a
+              href={`tel:${company.phone.replace(/\s/g, '')}`}
+              className="flex items-center gap-1.5 transition-colors hover:text-accent-300"
+            >
+              <Phone size={14} className="text-accent-400" />
+              {company.phone}
+            </a>
+          </div>
+        </div>
+      </div>
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link to="/" onClick={() => setOpen(false)}>
           <img src="/logo.png" alt="HydraTech ME" className="h-10 w-auto" />

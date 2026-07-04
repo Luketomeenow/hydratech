@@ -62,7 +62,7 @@ export default function Home() {
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              'radial-gradient(52rem 30rem at 78% 22%, rgba(45, 127, 211, 0.16), transparent 65%)',
+              'radial-gradient(52rem 30rem at 78% 22%, rgba(255, 111, 71, 0.12), transparent 65%)',
           }}
         />
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-4 pb-32 pt-16 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:pb-40 lg:pt-24">
