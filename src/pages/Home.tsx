@@ -114,7 +114,7 @@ export default function Home() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
             <motion.img
-              src="/images/home-maersk-project.jpg"
+              src="/images/home-maersk.png"
               alt="Offshore jack-up drilling rig on a HydraTech project"
               style={reduce ? undefined : { y: yBack }}
               className="ml-auto aspect-[4/3] w-[85%] rounded-xl border border-steel-700 object-cover shadow-2xl shadow-black/40"
