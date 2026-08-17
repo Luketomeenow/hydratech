@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { MapPin, Phone, EnvelopeSimple, Printer } from '@phosphor-icons/react'
+import { MapPin, Phone, EnvelopeSimple, Printer, LinkedinLogo } from '@phosphor-icons/react'
 import { company, services } from '../data/site'
 
 export default function Footer() {
@@ -19,6 +19,15 @@ export default function Footer() {
           <p className="mt-3 text-xs text-steel-400">
             Certified {company.certifications.join(', ')}
           </p>
+          <a
+            href={company.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="HydraTech ME on LinkedIn"
+            className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-md bg-steel-800 text-steel-300 transition-colors hover:bg-accent-600 hover:text-white"
+          >
+            <LinkedinLogo size={20} weight="fill" />
+          </a>
         </div>
 
         <div>

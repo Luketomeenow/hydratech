@@ -9,6 +9,7 @@ export const company = {
   phone: '+971 4 802 7000',
   fax: '+971 4 802 7001',
   email: 'info@hydratech-me.com',
+  linkedin: 'https://www.linkedin.com/company/hydratech-fzco/',
 }
 
 export const industries = [

@@ -9,6 +9,7 @@ import {
   CheckCircle,
   WarningCircle,
   SpinnerGap,
+  LinkedinLogo,
 } from '@phosphor-icons/react'
 import PageHeader from '../components/PageHeader'
 import Reveal from '../components/Reveal'
@@ -82,6 +83,17 @@ export default function Contact() {
                 href={`mailto:${company.email}`}
               >
                 {company.email}
+              </a>
+            </li>
+            <li className="flex items-center gap-3.5">
+              <LinkedinLogo size={24} className="shrink-0 text-accent-600" />
+              <a
+                className="transition-colors hover:text-accent-600"
+                href={company.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                HydraTech on LinkedIn
               </a>
             </li>
           </ul>
